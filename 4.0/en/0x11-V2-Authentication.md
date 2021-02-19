@@ -1,14 +1,14 @@
-# V2: Authentication Verification Requirements
+# V2: Requerimentos de Verificação de Autenticação
 
-## Control Objective
+## Objetivo do Controle
 
-Authentication is the act of establishing, or confirming, someone (or something) as authentic and that claims made by a person or about a device are correct, resistant to impersonation, and prevent recovery or interception of passwords.
+Autenticação é o ato de estabelecer ou confirmar, alguma pessoa (ou alguma coisa) como autêntica e que reinvidicações feitas por uma pessoa ou sobre um dispositivo são corretas, resistentes a impersonação e previnem recuperação ou interceptação de senhas.
 
-When the ASVS was first released, username + password was the most common form of authentication outside of high security systems. Multi-factor Authentication (MFA) was commonly accepted in security circles but rarely required elsewhere. As the number of password breaches increased, the idea that usernames are somehow confidential and passwords unknown, rendered many security controls untenable. For example, NIST 800-63 considers usernames and Knowledge Based Authentication (KBA) as public information, SMS and email notifications as ["restricted" authenticator types](https://pages.nist.gov/800-63-FAQ/#q-b1) , and passwords as pre-breached. This reality renders knowledge based authenticators, SMS and email recovery, password history, complexity, and rotation controls useless. These controls always have been less than helpful, often forcing users to come up with weak passwords every few months, but with the release of over 5 billion username and password breaches, it's time to move on.
+Quando o ASVS foi lançado pela primeira vez, nome de usuário + senha era a forma mais comum de autenticação fora de sistemas de segurança elevada. Autenticação Multi-fator (AMF) era comumente aceitada em círculos de segurança, mas raramente requerida em outros lugares. Como o número de vazamentos de senha aumentou, a ideia de que nomes de usuário são, de alguma forma, confidenciais e senhas desconhecidas, deixou muitos controles de segurança insustentáveis. Por exemplo, a NIST 800-63 considera nomes de usuário e **autenticação baseada em conhecimento** como informação pública, notificações por SMS e e-mail como [tipos de autenticadores "restritos"](https://pages.nist.gov/800-63-FAQ/#q-b1) , e senhas como pré-vazadas. Esta realida deixa autenticadores baseados em conhecimento, recuperação por SMS e email, histórico de senhas, complexidade e controção de rotação inúteis. Esses controles sempre foram menos do que úteis, frequentemente forçando usuários a criar senhas fracas a cada poucos meses, mas com a revelação de mais de 5 bilhões de usuários e senhas vazados, é hora de seguir em frente.
 
-Of all the chapters in the ASVS, the authentication and session management chapters have changed the most. Adoption of effective, evidence-based leading practice will be challenging for many, and that's perfectly okay. We have to start the transition to a post-password future now.
+De todos os capítulos do ASVS, os capítulos de autenticação e gerenciamento de sessão formam os que mais mudaram. A adoção de práticas efetivas guiadas com base em evidências vai ser desafiadora para muitos e isso é perfeitamente normal. Nós temos que iniciar a transição para um futuro pós-senhas agora.
 
-## NIST 800-63 - Modern, evidence-based authentication standard
+## NIST 800-63 - Padrão de autenticação moderno e baseado em evidências
 
 [NIST 800-63b](https://pages.nist.gov/800-63-3/sp800-63b.html) is a modern, evidence-based standard, and represents the best advice available, regardless of applicability. The standard is helpful for all organizations all over the world but is particularly relevant to US agencies and those dealing with US agencies.
 

@@ -30,7 +30,7 @@ Applications can always exceed the current level's requirements, especially if m
 | o | Recommended, but not required |
 | ✓ | Required |
 
-## V2.1 Password Security Requirements
+## V2.1 Requerimentos de Segurança de Senhas
 
 Passwords, called "Memorized Secrets" by NIST 800-63, include passwords, PINs, unlock patterns, pick the correct kitten or another image element, and passphrases. They are generally considered "something you know", and often used as single-factor authenticators. There are significant challenges to the continued use of single-factor authentication, including billions of valid usernames and passwords disclosed on the Internet, default or weak passwords, rainbow tables and ordered dictionaries of the most common passwords.
 
@@ -40,20 +40,20 @@ Credential Service Providers (CSPs) provide federated identity for users. Users 
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **2.1.1** | Verify that user set passwords are at least 12 characters in length (after multiple spaces are combined). ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
-| **2.1.2** | Verify that passwords 64 characters or longer are permitted but may be no longer than 128 characters. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
-| **2.1.3** | Verify that password truncation is not performed. However, consecutive multiple spaces may be replaced by a single space. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
-| **2.1.4** | Verify that any printable Unicode character, including language neutral characters such as spaces and Emojis are permitted in passwords. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
-| **2.1.5** | Verify users can change their password. | ✓ | ✓ | ✓ | 620 | 5.1.1.2 |
-| **2.1.6** | Verify that password change functionality requires the user's current and new password. | ✓ | ✓ | ✓ | 620 | 5.1.1.2 |
-| **2.1.7** | Verify that passwords submitted during account registration, login, and password change are checked against a set of breached passwords either locally (such as the top 1,000 or 10,000 most common passwords which match the system's password policy) or using an external API. If using an API a zero knowledge proof or other mechanism should be used to ensure that the plain text password is not sent or used in verifying the breach status of the password. If the password is breached, the application must require the user to set a new non-breached password. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
-| **2.1.8** | Verify that a password strength meter is provided to help users set a stronger password. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
-| **2.1.9** | Verify that there are no password composition rules limiting the type of characters permitted. There should be no requirement for upper or lower case or numbers or special characters. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
-| **2.1.10** | Verify that there are no periodic credential rotation or password history requirements. | ✓ | ✓ | ✓ | 263 | 5.1.1.2 |
-| **2.1.11** | Verify that "paste" functionality, browser password helpers, and external password managers are permitted. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
-| **2.1.12** | Verify that the user can choose to either temporarily view the entire masked password, or temporarily view the last typed character of the password on platforms that do not have this as built-in functionality. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.1** | Verificar que as senhas de usuários possuem ao menos 12 caracteres de tamanho (após múltiplos espaços em branco são combinados). ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.2** | Verificar que senhas com 64 caracteres ou mais são permitidos, mas não devem ser maiores que 128 caracteres. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.3** | Verificar que truncagem de senha não é realizada. No entanto, múltiplos espaços em branco consecutivos podem ser substituídos por um único espaço em branco. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.4** | Verificar que qualquer caracter Unicode imprimível, incluindo caracteres de linguagem neutra como espaços em branco e Emojis são permitidos em senhas. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.5** | Verificar que usuários podem alterar sua senha. | ✓ | ✓ | ✓ | 620 | 5.1.1.2 |
+| **2.1.6** | Verificar que a funcionalidade de alteração de senha requere a senha atual e a nova senha do usuário. | ✓ | ✓ | ✓ | 620 | 5.1.1.2 |
+| **2.1.7** | Verificar que senhas submetidas durange registro de conta, login, e troca de senha são checadas contra um conjunto de senhas vazadas feito localmente (como as 1.000 ou 10.000 senhas mais comuns que correspondem à política de senha do sistema) ou usando uma API externa. Se uma API for usada, uma prova de conhecimento-zero ou outro mecanismo deve ser usado para garantir que senhas em texto plano não são enviadas ou usadas na verificação do estado de vazado da senha. Se a senha foi vazada, a aplicação deve requerer que o usuário configure uma nova senha não vazada. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.8** | Verificar que um medidor de força de senha é provido para ajudar o usuários a escolherem uma senha mais forte. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.9** | Verificar que não há regras de composição de senhas limitando os tipos de caracteres permitidos. Não deve haver requeriimento para letras maiúsculas e minúsculas ou números ou caracteres especiais. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.10** | Verificar que não há rotação periódica de credenciais ou requerimento de histórico de senhas. | ✓ | ✓ | ✓ | 263 | 5.1.1.2 |
+| **2.1.11** | Verificar que a funcionalidade de "colar", preenchimento automático de senhas em navegadores e gerenciadores de senha externos são permitidos. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
+| **2.1.12** | Verificar que o usuário pode escolher entre ver temporariamente a senha inteira mascarada ou ver temporariamente o último caracter digitado da senha em plataformas que não possuem essa funcionalidade embutida. | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 
-Note: The goal of allowing the user to view their password or see the last character temporarily is to improve the usability of credential entry, particularly around the use of longer passwords, passphrases, and password managers. Another reason for including the requirement is to deter or prevent test reports unnecessarily requiring organizations to override built-in platform password field behavior to remove this modern user-friendly security experience.
+Nota: O objetivo de permitir que o usuário veja sua senha ou veja o último caracter temporariamente é melhorar a usabilidade do registro de credenciais, particularmente em torno do uso de senhas mais longas, frases-passe e gerenciadores de senhas. Outra razão para incluir o requerimento é para deter ou prevenir relatórios de teste desnecessariamente requerendo que organizações sobreponham o comportamento padrão do campo de senha da plataforma para remover essa moderna experiência de segurança amigável ao usuário.
 
 ## V2.2 General Authenticator Requirements
 

@@ -4,41 +4,42 @@
 
 Autenticação é o ato de estabelecer ou confirmar, alguma pessoa (ou alguma coisa) como autêntica e que reinvidicações feitas por uma pessoa ou sobre um dispositivo são corretas, resistentes a impersonação e previnem recuperação ou interceptação de senhas.
 
-Quando o ASVS foi lançado pela primeira vez, nome de usuário + senha era a forma mais comum de autenticação fora de sistemas de segurança elevada. Autenticação Multi-fator (AMF) era comumente aceitada em círculos de segurança, mas raramente requerida em outros lugares. Como o número de vazamentos de senha aumentou, a ideia de que nomes de usuário são, de alguma forma, confidenciais e senhas desconhecidas, deixou muitos controles de segurança insustentáveis. Por exemplo, a NIST 800-63 considera nomes de usuário e **autenticação baseada em conhecimento** como informação pública, notificações por SMS e e-mail como [tipos de autenticadores "restritos"](https://pages.nist.gov/800-63-FAQ/#q-b1) , e senhas como pré-vazadas. Esta realida deixa autenticadores baseados em conhecimento, recuperação por SMS e email, histórico de senhas, complexidade e controção de rotação inúteis. Esses controles sempre foram menos do que úteis, frequentemente forçando usuários a criar senhas fracas a cada poucos meses, mas com a revelação de mais de 5 bilhões de usuários e senhas vazados, é hora de seguir em frente.
+Quando o ASVS foi lançado pela primeira vez, nome de usuário + senha era a forma mais comum de autenticação fora de sistemas de segurança elevada. Autenticação Multi-fator (AMF) era comumente aceitada em círculos de segurança, mas raramente requerida em outros lugares. Como o número de vazamentos de senha aumentou, a ideia de que nomes de usuário são, de alguma forma, confidenciais e senhas desconhecidas, deixou muitos controles de segurança insustentáveis. Por exemplo, a NIST 800-63 considera nomes de usuário e autenticação baseada no conhecimento como informação pública, notificações por SMS e e-mail como [tipos de autenticadores "restritos"](https://pages.nist.gov/800-63-FAQ/#q-b1) , e senhas como pré-vazadas. Esta realida deixa autenticadores baseados em conhecimento, recuperação por SMS e email, histórico de senhas, complexidade e controção de rotação inúteis. Esses controles sempre foram menos do que úteis, frequentemente forçando usuários a criar senhas fracas a cada poucos meses, mas com a revelação de mais de 5 bilhões de usuários e senhas vazados, é hora de seguir em frente.
 
 De todos os capítulos do ASVS, os capítulos de autenticação e gerenciamento de sessão formam os que mais mudaram. A adoção de práticas efetivas guiadas com base em evidências vai ser desafiadora para muitos e isso é perfeitamente normal. Nós temos que iniciar a transição para um futuro pós-senhas agora.
 
 ## NIST 800-63 - Padrão de autenticação moderno e baseado em evidências
 
-[NIST 800-63b](https://pages.nist.gov/800-63-3/sp800-63b.html) is a modern, evidence-based standard, and represents the best advice available, regardless of applicability. The standard is helpful for all organizations all over the world but is particularly relevant to US agencies and those dealing with US agencies.
+A [NIST 800-63b](https://pages.nist.gov/800-63-3/sp800-63b.html) é um padrão moderno baseado em evidências e representa a melhor recomendação disponível, independentemente da aplicabilidade. O padrão é útil para todas as organização em todo o mundo, mas é particularmente relevante para as agências dos EUA e para aqueles lidando com as agências dos EUA.
 
-NIST 800-63 terminology can be a little confusing at first, especially if you're only used to username + password authentication. Advancements in modern authentication are necessary, so we have to introduce terminology that will become commonplace in the future, but we do understand the difficulty in understanding until the industry settles on these new terms. We have provided a glossary at the end of this chapter to assist. We have rephrased many requirements to satisfy the intent of the requirement, rather than the letter of the requirement. For example, the ASVS uses the term "password" when NIST uses "memorized secret" throughout this standard.
+A terminologia da NIST 800-63 pode ser um pouco confusa no início, especialmente se você está familiarizado apenas com atenticação usuário + senha. Avanços na autenticação moderna são necessários, então temos que introduzir uma terminologia que vai se tornar comum no futuro, mas nós entendemos a dificuldade no entendimento até que a indústria estabeleça esses novos termos. Nós provemos um glossário no fim deste capítulo para auxiliar. Nós reformulamos muitos requerimentos para satisfazer a intenção do requerimento, ao invés ~da letra~ do requerimento. Por exemplo, o ASVS usa o termo "senha" através deste padrão, enquanto a NIST usa "segredos memorizados".
 
-ASVS V2 Authentication, V3 Session Management, and to a lesser extent, V4 Access Controls have been adapted to be a compliant subset of selected NIST 800-63b controls, focused around common threats and commonly exploited authentication weaknesses. Where full NIST 800-63 compliance is required, please consult NIST 800-63.
+ASVS V2 Autenticação, V3 Gerenciamento de Sessão, e, em menor grau, V4 Controle de Acesso foram adaptados para estarem em conformidade com um subconjunto de controles selecionados da NIST 800-63b, focados em torno de ameaças comuns e fraquezas de autenticação comumente exploradas. Onde conformidade total com a NIST 800-63 é requerida, por favor, consulte a NIST 800-63.
 
 ### Selecting an appropriate NIST AAL Level
 
 The Application Security Verification Standard has tried to map ASVS L1 to NIST AAL1 requirements, L2 to AAL2, and L3 to AAL3. However, the approach of ASVS Level 1 as "essential" controls may not necessarily be the correct AAL level to verify an application or API. For example, if the application is a Level 3 application or has regulatory requirements to be AAL3, Level 3 should be chosen in chapters V2 and V3 Session Management. The choice of NIST compliant Authentication Assertion Level (AAL) should be performed as per NIST 800-63b guidelines as set out in *Selecting AAL* in [NIST 800-63b Section 6.2](https://pages.nist.gov/800-63-3/sp800-63-3.html#AAL_CYOA).
 
-## Legend
+## Legenda
 
-Applications can always exceed the current level's requirements, especially if modern authentication is on an application's roadmap. Previously, the ASVS has required mandatory MFA. NIST does not require mandatory MFA. Therefore, we have used an optional designation in this chapter to indicate where the ASVS encourages but does not require a control. The following keys are used throughout this standard:
+Aplicações podem sempre exceder o nível atual de requerimentos, especialmente se autenticação moderna está no roteiro da aplicação. Previamente, o ASVS requereu AMF mandatória. A NIST não requere AMF mandatória. Portanto, nós usamos uma designação especial neste capítulo para indicar onde o ASVS encoraja, mas não requere um controle. As chaves seguintes são utilizadas através deste padrão:
 
-| Mark | Description |
+| símbolo | Descrição |
 | :--: | :-- |
-| | Not required |
-| o | Recommended, but not required |
-| ✓ | Required |
+| | Não requerido |
+| o | Recomendado, mas não requerido |
+| ✓ | Requerido |
 
 ## V2.1 Requerimentos de Segurança de Senhas
 
-Passwords, called "Memorized Secrets" by NIST 800-63, include passwords, PINs, unlock patterns, pick the correct kitten or another image element, and passphrases. They are generally considered "something you know", and often used as single-factor authenticators. There are significant challenges to the continued use of single-factor authentication, including billions of valid usernames and passwords disclosed on the Internet, default or weak passwords, rainbow tables and ordered dictionaries of the most common passwords.
+Senhas, chamadas de "Segredos Memorizados" pela NIST 800-63, incuelm senhas, PINs, padrões de desbloquerio, escolha o gatinho correto ou outro elemento de imagem e frases-passe. Eles são geralmente considerados "algo que você sabe" e muitas vezes são usados como autenticadores de fator único. Existem desafios significantes para a continuidade destes autenticadores de fator único, incluindo bilhões de usuários e senhas válidos vazados na Internet, senhas fracas ou padrão,  
+Passwords, called "Memorized Secrets" by NIST 800-63, include passwords, PINs, unlock patterns, pick the correct kitten or another image element, and passphrases. They are generally considered "something you know", and often used as single-factor authenticators. There are significant challenges to the continued use of single-factor authentication, including billions of valid usernames and passwords disclosed on the Internet, default or weak passwords, tabelas arco-íris e dicionários ordenados das senhas mais comuns.
 
-Applications should strongly encourage users to enroll in multi-factor authentication, and should allow users to re-use tokens they already possess, such as FIDO or U2F tokens, or link to a credential service provider that provides multi-factor authentication.
+Aplicações devem encorajar fortemente os usuários a se cadastrar na autenticação multi-fator, e devem permitir que esses usuários reusem tokens que eles já possuem, como os tokens FIDO ou U2F, ou conectar a um provedor de serviços de credenciais que provê autenticação multi-fator.
 
 Credential Service Providers (CSPs) provide federated identity for users. Users will often have more than one identity with multiple CSPs, such as an enterprise identity using Azure AD, Okta, Ping Identity or Google, or consumer identity using Facebook, Twitter, Google, or WeChat, to name a just few common alternatives. This list is not an endorsement of these companies or services, but simply an encouragement for developers to consider the reality that many users have many established identities. Organizations should consider integrating with existing user identities, as per the risk profile of the CSP's strength of identity proofing. For example, it is unlikely a government organization would accept a social media identity as a login for sensitive systems, as it is easy to create fake or throw away identities, whereas a mobile game company may well need to integrate with major social media platforms to grow their active player base.
 
-| # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
+| # | Descrição | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
 | **2.1.1** | Verificar que as senhas de usuários possuem ao menos 12 caracteres de tamanho (após múltiplos espaços em branco são combinados). ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |
 | **2.1.2** | Verificar que senhas com 64 caracteres ou mais são permitidos, mas não devem ser maiores que 128 caracteres. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 521 | 5.1.1.2 |

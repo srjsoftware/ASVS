@@ -14,11 +14,11 @@ A [NIST 800-63b](https://pages.nist.gov/800-63-3/sp800-63b.html) é um padrão m
 
 A terminologia da NIST 800-63 pode ser um pouco confusa no início, especialmente se você está familiarizado apenas com autenticação usuário + senha. Avanços na autenticação moderna são necessários, então temos que introduzir uma terminologia que vai se tornar comum no futuro, mas nós entendemos a dificuldade no entendimento até que a indústria estabeleça esses novos termos. Nós providenciamos um glossário no fim deste capítulo para auxiliar. Nós reformulamos muitos requerimentos para satisfazer a intenção do requerimento, ao invés ~da letra~ do requerimento. Por exemplo, o ASVS usa o termo "senha" através deste padrão, enquanto a NIST usa "segredos memorizados".
 
-ASVS V2 Autenticação, V3 Gerenciamento de Sessão, e, em menor grau, V4 Controle de Acesso foram adaptados para estarem em conformidade com um subconjunto de controles selecionados da NIST 800-63b, focados em torno de ameaças comuns e fraquezas de autenticação comumente exploradas. Onde conformidade total com a NIST 800-63 é requerida, por favor, consulte a NIST 800-63.
+ASVS V2 Autenticação, V3 Gerenciamento de Sessão e, em menor grau, V4 Controle de Acesso foram adaptados para estarem em conformidade com um subconjunto de controles selecionados da NIST 800-63b, focados em torno de ameaças comuns e fraquezas de autenticação comumente exploradas. Onde conformidade total com a NIST 800-63 é requerida, por favor, consulte a NIST 800-63.
 
-### Selecting an appropriate NIST AAL Level
+### Selecionando um nível NIST AAL apropriado
 
-The Application Security Verification Standard has tried to map ASVS L1 to NIST AAL1 requirements, L2 to AAL2, and L3 to AAL3. However, the approach of ASVS Level 1 as "essential" controls may not necessarily be the correct AAL level to verify an application or API. For example, if the application is a Level 3 application or has regulatory requirements to be AAL3, Level 3 should be chosen in chapters V2 and V3 Session Management. The choice of NIST compliant Authentication Assertion Level (AAL) should be performed as per NIST 800-63b guidelines as set out in *Selecting AAL* in [NIST 800-63b Section 6.2](https://pages.nist.gov/800-63-3/sp800-63-3.html#AAL_CYOA).
+O Padrão de Verificação de Segurança de Aplicações tentou mapear as exigências ASVS L1 para as da NIST AAL1, L2 para AAL2, e L3 para AAL3. No entanto, a abordagem do Nível 1 do ASVS como controles "essenciais" pode não ser necessariamente os nível AAL correto para verificar uma aplicação ou API. Por exemplo, se a aplicação é uma aplicação de Nível 3 ou possui requerimentos regulatórios para ser AAL3, Nível 3 deve ser escolhido nos capítulos V2 e V3 Gerenciamento de Sessão. A escolher de Nível de Afirmação de Autenticação (AAL) deve ser realizada conforme as diretrizes da NIST 800-63b como estabelecido em *Selecionando o AAL* em [NIST 800-63b Section 6.2](https://pages.nist.gov/800-63-3/sp800-63-3.html#AAL_CYOA).
 
 ## Legenda
 
@@ -37,7 +37,7 @@ Passwords, called "Memorized Secrets" by NIST 800-63, include passwords, PINs, u
 
 Aplicações devem encorajar fortemente os usuários a se cadastrar na autenticação multi-fator, e devem permitir que esses usuários reusem tokens que eles já possuem, como os tokens FIDO ou U2F, ou conectar a um provedor de serviços de credenciais que provê autenticação multi-fator.
 
-Credential Service Providers (CSPs) provide federated identity for users. Users will often have more than one identity with multiple CSPs, such as an enterprise identity using Azure AD, Okta, Ping Identity or Google, or consumer identity using Facebook, Twitter, Google, or WeChat, to name a just few common alternatives. This list is not an endorsement of these companies or services, but simply an encouragement for developers to consider the reality that many users have many established identities. Organizations should consider integrating with existing user identities, as per the risk profile of the CSP's strength of identity proofing. For example, it is unlikely a government organization would accept a social media identity as a login for sensitive systems, as it is easy to create fake or throw away identities, whereas a mobile game company may well need to integrate with major social media platforms to grow their active player base.
+Provedores de Serciços de Credenciais (CSPs) proveem identidade federada para usuários. Usuários frequentemente ter mais de uma identidade em múltiplos CSPs, como uma identidade empresarial usando Azure AD, Okta, Ping Identify ou Google, ou identidade de consumidor usando Facebook, Twiter, Google, ou WeChat, para nomear apenas algumas alternativas comuns. Esta lista não é um endosso a essas companhias ou serviços, mas simplesmente um encorajamento para desenvolvedores considerarem a realidade que muitos usuários tem muitas identidades estabelecidas. Organizações devem considerar integração com identidades de usuário existentes, conforme o perfil de risco da força da prova de identidade do CSP. Por exemplo, é improvável que uma organização governamental iria aceitar uma identidade de mídia social como login para sistemas sensíveis, pois é fácil criar identidades falsas ou destruí-las, enquanto uma empresa de jogos de celular pode muito bem precisar de se integrar a grandes plataformas de mídias sociais para aumentar sua base de jogadores ativos.
 
 | # | Descrição | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
@@ -56,8 +56,8 @@ Credential Service Providers (CSPs) provide federated identity for users. Users 
 
 Nota: O objetivo de permitir que o usuário veja sua senha ou veja o último caractere temporariamente é melhorar a usabilidade do registro de credenciais, particularmente em torno do uso de senhas mais longas, frases-passe e gerenciadores de senhas. Outra razão para incluir o requerimento é para deter ou prevenir relatórios de teste desnecessariamente requerendo que organizações sobreponham o comportamento padrão do campo de senha da plataforma para remover essa moderna experiência de segurança amigável ao usuário.
 
-## V2.2 General Authenticator Requirements
-
+## V2.2 Requerimentos de Autenticador Gerais
+ 
 Authenticator agility is essential to future-proof applications. Refactor application verifiers to allow additional authenticators as per user preferences, as well as allowing retiring deprecated or unsafe authenticators in an orderly fashion.
 
 NIST considers email and SMS as ["restricted" authenticator types](https://pages.nist.gov/800-63-FAQ/#q-b1), and they are likely to be removed from NIST 800-63 and thus the ASVS at some point the future. Applications should plan a roadmap that does not require the use of email or SMS.
@@ -180,26 +180,26 @@ This section is not penetration testable, so does not have any L1 requirements. 
 | **2.10.3** | Verify that passwords are stored with sufficient protection to prevent offline recovery attacks, including local system access. |  | OS assisted | HSM | 522 | 5.1.1.1 |
 | **2.10.4** | Verify passwords, integrations with databases and third-party systems, seeds and internal secrets, and API keys are managed securely and not included in the source code or stored within source code repositories. Such storage SHOULD resist offline attacks. The use of a secure software key store (L1), hardware TPM, or an HSM (L3) is recommended for password storage. |  | OS assisted | HSM | 798 | |
 
-## Additional US Agency Requirements
+## Requerimientos Adicionais para agências dos EUA
 
-US Agencies have mandatory requirements concerning NIST 800-63. The Application Security Verification Standard has always been about the 80% of controls that apply to nearly 100% of apps, and not the last 20% of advanced controls or those that have limited applicability. As such, the ASVS is a strict subset of NIST 800-63, especially for IAL1/2 and AAL1/2 classifications, but is not sufficiently comprehensive, particularly concerning IAL3/AAL3 classifications.
+Agências dos EUA possuem requerimentos mandatórios relativos à NIST 800-63. O Padrão de Verificação de Segurança de Aplicações sempre foi sobre os 80% dos controles que se aplicam a aproximadamente 100% das aplicações e não os 20% restantes dos controles avançados ou aqueles que tem aplicabilidade limitada. Assim sendo, o ASVS é um subconjunto estrito da NIST 800-63, especialmente para as classificações IAL1/2 e AAL1/2, mas não é suficientemente completo, particularmente a respeito das classificações IAL3/AAL3.
 
-We strongly urge US government agencies to review and implement NIST 800-63 in its entirety.
+Nós fortemente recomendamos às agências governamentais dos EUA a revisar e implementar a NIST 800-63 inteiramente.
 
 ## Glossary of terms
 
-| Term | Meaning |
+| Termo | Significado |
 | -- | -- |
 | CSP | Credential Service Provider also called an Identity Provider |
-| Authenticator | Code that authenticates a password, token, MFA, federated assertion, and so on. |
-| Verifier | "An entity that verifies the claimant's identity by verifying the claimant's possession and control of one or two authenticators using an authentication protocol. To do this, the verifier may also need to validate credentials that link the authenticator(s) to the subscriber's identifier and check their status" |
+| Autenticador | Code that authenticates a password, token, MFA, federated assertion, and so on. |
+| Verificador | "An entity that verifies the claimant's identity by verifying the claimant's possession and control of one or two authenticators using an authentication protocol. To do this, the verifier may also need to validate credentials that link the authenticator(s) to the subscriber's identifier and check their status" |
 | OTP | One-time password |
 | SFA | Single-factor authenticators, such as something you know (memorized secrets, passwords, passphrases, PINs), something you are (biometrics, fingerprint, face scans), or something you have (OTP tokens, a cryptographic device such as a smart card),  |
 | MFA | Multi-factor authentication, which includes two or more single factors |
 
-## References
+## Referências
 
-For more information, see also:
+Para mais informações, veja também:
 
 * [NIST 800-63 - Digital Identity Guidelines](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf)
 * [NIST 800-63 A - Enrollment and Identity Proofing](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63a.pdf)

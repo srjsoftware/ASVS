@@ -64,9 +64,10 @@ NIST considers email and SMS as ["restricted" authenticator types](https://pages
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **2.2.1** | Verify that anti-automation controls are effective at mitigating breached credential testing, brute force, and account lockout attacks. Such controls include blocking the most common breached passwords, soft lockouts, rate limiting, CAPTCHA, ever increasing delays between attempts, IP address restrictions, or risk-based restrictions such as location, first login on a device, recent attempts to unlock the account, or similar. Verify that no more than 100 failed attempts per hour is possible on a single account. | ✓ | ✓ | ✓ | 307 | 5.2.2 / 5.1.1.2 / 5.1.4.2 / 5.1.5.2 |
-| **2.2.2** | Verify that the use of weak authenticators (such as SMS and email) is limited to secondary verification and transaction approval and not as a replacement for more secure authentication methods. Verify that stronger methods are offered before weak methods, users are aware of the risks, or that proper measures are in place to limit the risks of account compromise. | ✓ | ✓ | ✓ | 304 | 5.2.10 |
-| **2.2.3** | Verify that secure notifications are sent to users after updates to authentication details, such as credential resets, email or address changes, logging in from unknown or risky locations. The use of push notifications - rather than SMS or email - is preferred, but in the absence of push notifications, SMS or email is acceptable as long as no sensitive information is disclosed in the notification. | ✓ | ✓ | ✓ | 620 | |
+| **2.2.1** | Verificar que controles de anti-automação são efetivos em mitigar ataques de testes de credenciais vazadas, força bruta e bloqueio de conta.Tais controles incluem bloquear as senhas vazadas mais comuns, bloqueios suaves, limitação de taxa de solicitações, CAPTCHA, demoras sempre crescentes entre tentativas, restrições de IP, ou restrições baseadas em risco, como local, primeiro login em um dispositivo, tentativas recentes de desbloquear uma conta ou similares. Verificar que não mais do que 100 tentativas falhas por hora são possíveis em uma única conta.  | ✓ | ✓ | ✓ | 307 | 5.2.2 / 5.1.1.2 / 5.1.4.2 / 5.1.5.2 |
+| **2.2.2** | Verificar que o uso de autenticadores fracos (como SMS e email) são limitados a verificações secundárias ou aprovação de transações e não como substitutos para métodos de autenticação mais seguros. Verificar que métodos mais seguros são oferecidos antes de métodos menos seguros, que os usuários estão conscientes dos riscos, ou que medidas cabíveis estão em vigor para limitar o risco de comprometimento de contas.
+ | ✓ | ✓ | ✓ | 304 | 5.2.10 |
+| **2.2.3** | Verificar que notificações seguras são enviadas aos usuários depois de atualizações de detalhes de autenticação, como redefinições de credenciais, mudanças de email ou endereço, login de locais desconhecidos ou perigosos. O uso de notificações push - ao invés de SMS ou email - é preferível, mas na ausência de notificações push, SMS ou email são aceitáveis quando informações sensíveis não são reveladas na notificação. | ✓ | ✓ | ✓ | 620 | |
 | **2.2.4** | Verify impersonation resistance against phishing, such as the use of multi-factor authentication, cryptographic devices with intent (such as connected keys with a push to authenticate), or at higher AAL levels, client-side certificates. |  |  | ✓ | 308 | 5.2.5 |
 | **2.2.5** | Verify that where a Credential Service Provider (CSP) and the application verifying authentication are separated, mutually authenticated TLS is in place between the two endpoints. |  |  | ✓ | 319 | 5.2.6 |
 | **2.2.6** | Verify replay resistance through the mandated use of One-time Passwords (OTP) devices, cryptographic authenticators, or lookup codes. |  |  | ✓ | 308 | 5.2.8 |
@@ -80,7 +81,7 @@ Note: Passwords are not to have a maximum lifetime or be subject to password rot
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **2.3.1** | Verify system generated initial passwords or activation codes SHOULD be securely randomly generated, SHOULD be at least 6 characters long, and MAY contain letters and numbers, and expire after a short period of time. These initial secrets must not be permitted to become the long term password. | ✓ | ✓ | ✓ | 330 | 5.1.1.2 / A.3 |
+| **2.3.1** | Verificar que senhas iniciais ou códigos de ativação gerados pelo sistema devem ser gerados randomicamente de forma segura, devem ter no mínimo 6 caracteres e podem conter letras e números, e expirar após um curto período de tempo. Não deve ser permitido que estes segredos iniciais se torne a senha de longo prazo. | ✓ | ✓ | ✓ | 330 | 5.1.1.2 / A.3 |
 | **2.3.2** | Verify that enrollment and use of subscriber-provided authentication devices are supported, such as a U2F or FIDO tokens. |  | ✓ | ✓ | 308 | 6.1.3 |
 | **2.3.3** | Verify that renewal instructions are sent with sufficient time to renew time bound authenticators. |  | ✓ | ✓ | 287 | 6.1.4 |
 
@@ -106,12 +107,13 @@ Where US standards are mentioned, a regional or local standard can be used in pl
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **2.5.1** | [MODIFIED] Verify that if a system generated initial activation or recovery secret is being sent to the user, it is single-use, time-limited and random. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
-| **2.5.2** | Verify password hints or knowledge-based authentication (so-called "secret questions") are not present. | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
-| **2.5.3** | Verify password credential recovery does not reveal the current password in any way. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
-| **2.5.4** | Verify shared or default accounts are not present (e.g. "root", "admin", or "sa"). | ✓ | ✓ | ✓ | 16 | 5.1.1.2 / A.3 |
-| **2.5.5** | Verify that if an authentication factor is changed or replaced, that the user is notified of this event. | ✓ | ✓ | ✓ | 304 | 6.1.2.3 |
-| **2.5.6** | Verify forgotten password, and other recovery paths use a secure recovery mechanism, such as time-based OTP (TOTP) or other soft token, mobile push, or another offline recovery mechanism. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
+| **2.5.1** | [MODIFIED] Verificar que se uma ativação inicial ou segredo de recuperação gerada pelo sistema é enviado para o usuário, ele deve ser de uso único, com tempo limitado e aleatório. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
+| **2.5.2** | Verificar que dicas de senha ou autenticação baseada em conhecimento (as chamadas "perguntas secretas") não estão presentes. | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
+| **2.5.3** | Verificar que a recuperação de senha não revela a senha atual de qualquer maneira. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
+| **2.5.4** | Verificar que contas compartilhadas ou padrão não estão presentes (e.g. "root", "admin", ou "sa"). | ✓ | ✓ | ✓ | 16 | 5.1.1.2 / A.3 |
+| **2.5.5** | Verificar que se um fator de autenticação é alterado ou trocado, o usuário é notificado deste evento. | ✓ | ✓ | ✓ | 304 | 6.1.2.3 |
+| **2.5.6** | **Verificar que "esqueci a senha" ou outro caminho de recuperação usam um mecanismo de recuperação seguro, como OTP baseado em tempo (TOTP) ou outro token de software, notificações push móveis, ou outro método de recuperação offline. ???**
+Verify forgotten password, and other recovery paths use a secure recovery mechanism, such as time-based OTP (TOTP) or other soft token, mobile push, or another offline recovery mechanism. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 640 | 5.1.1.2 |
 | **2.5.7** | Verify that if OTP or multi-factor authentication factors are lost, that evidence of identity proofing is performed at the same level as during enrollment. |  | ✓ | ✓ | 308 | 6.1.2.3 |
 
 ## V2.6 Look-up Secret Verifier Requirements
@@ -136,10 +138,10 @@ Unsafe out of band authenticators such as e-mail and VOIP are not permitted. PST
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **2.7.1** | Verify that clear text out of band (NIST "restricted") authenticators, such as SMS or PSTN, are not offered by default, and stronger alternatives such as push notifications are offered first. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
-| **2.7.2** | Verify that the out of band verifier expires out of band authentication requests, codes, or tokens after 10 minutes. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
-| **2.7.3** | Verify that the out of band verifier authentication requests, codes, or tokens are only usable once, and only for the original authentication request. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
-| **2.7.4** | Verify that the out of band authenticator and verifier communicates over a secure independent channel. | ✓ | ✓ | ✓ | 523 | 5.1.3.2 |
+| **2.7.1** | Verificar que autenticadores fora de banda em texto plano ("restritos" pela NIST), como SMS ou PSTN, não são oferecidos por padrão e alternativas mais fortes como notificações push são oferecidas primeiro. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
+| **2.7.2** | Verificar que verificadores fora de banda expiram requisições de autenticação, códigos e tokens fora de banda após 10 minutos. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
+| **2.7.3** | Verificar que requisições de autenticação, códigosou tokens foram de banda são usáveis apenas uma vez e apenas para a requisição de autenticação original. | ✓ | ✓ | ✓ | 287 | 5.1.3.2 |
+| **2.7.4** | Verificar que autenticadores e verificadores foram de banda se comunicam através de um canal seguro independente. | ✓ | ✓ | ✓ | 523 | 5.1.3.2 |
 | **2.7.5** | Verify that the out of band verifier retains only a hashed version of the authentication code. |  | ✓ | ✓ | 256 | 5.1.3.2 |
 | **2.7.6** | Verify that the initial authentication code is generated by a secure random number generator, containing at least 20 bits of entropy (typically a six digital random number is sufficient). |  | ✓ | ✓ | 310 | 5.1.3.2 |
 
@@ -149,7 +151,7 @@ Single-factor One-time Passwords (OTPs) are physical or soft tokens that display
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **2.8.1** | Verify that time-based OTPs have a defined lifetime before expiring. | ✓ | ✓ | ✓ | 613 | 5.1.4.2 / 5.1.5.2 |
+| **2.8.1** | Verificar que OTPs baseados em tempo tem um tempo de vida definido antes de expirar. | ✓ | ✓ | ✓ | 613 | 5.1.4.2 / 5.1.5.2 |
 | **2.8.2** | Verify that symmetric keys used to verify submitted OTPs are highly protected, such as by using a hardware security module or secure operating system based key storage. |  | ✓ | ✓ | 320 | 5.1.4.2 / 5.1.5.2|
 | **2.8.3** | Verify that approved cryptographic algorithms are used in the generation, seeding, and verification of OTPs. |  | ✓ | ✓ | 326 | 5.1.4.2 / 5.1.5.2 |
 | **2.8.4** | Verify that time-based OTP can be used only once within the validity period. |  | ✓ | ✓ | 287 | 5.1.4.2 / 5.1.5.2 |

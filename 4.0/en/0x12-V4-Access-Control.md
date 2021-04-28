@@ -14,25 +14,25 @@ Authorization is the concept of allowing access to resources only to those permi
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **4.1.1** | Verify that the application enforces access control rules on a trusted service layer, especially if client-side access control is present and could be bypassed. | ✓ | ✓ | ✓ | 602 |
-| **4.1.2** | Verify that all user and data attributes and policy information used by access controls cannot be manipulated by end users unless specifically authorized. | ✓ | ✓ | ✓ | 639 |
-| **4.1.3** | Verify that the principle of least privilege exists - users should only be able to access functions, data files, URLs, controllers, services, and other resources, for which they possess specific authorization. This implies protection against spoofing and elevation of privilege. ([C7](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ |  285 |
-| **4.1.4** | Verify that the principle of deny by default exists whereby new users/roles start with minimal or no permissions and users/roles do not receive access to new features until access is explicitly assigned.  ([C7](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ |  276 |
-| **4.1.5** | Verify that access controls fail securely including when an exception occurs. ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ |  285 |
+| **4.1.1** | Verificar que a aplicação impões regras de controle de acesso em uma camada de serviço confiável, especialmente se controle de acesso do lado do cliente está presente e pode ser burlado. | ✓ | ✓ | ✓ | 602 |
+| **4.1.2** | Verificar que todos os atributos de usuário e de dados, e informações de políticas usados pelo controle de acesso não podem ser manipulados pelos usuários finais, a não ser que for especificamente autorizado. | ✓ | ✓ | ✓ | 639 |
+| **4.1.3** | Verificar que o princípio do menor privilégio existe - usuários devem ser capazes apenas de acessar funções, dados de arquivo, URLs, controladores, serviços e outros recursos  para os quais eles possuem autorização específica. Isto implica proteções contra spoofing e elevação de privilégio. ([C7](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ |  285 |
+| **4.1.4** | Verificar que o princípio de negar por padrão existe através do qual novos usuários/papéis iniciam com permissões mínimas ou sem permissões; e usuários/papéis não recebem acesso a novas funcionalidades até que o acesso seja explicitamente atribuído. ([C7](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ |  276 |
+| **4.1.5** | Verificar que os controles de acesso falham de maneira segura, incluindo quando uma exceção ocorre. ([C10](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ |  285 |
 
 ## V4.2 Operation Level Access Control
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **4.2.1** | Verify that sensitive data and APIs are protected against Insecure Direct Object Reference (IDOR) attacks targeting creation, reading, updating and deletion of records, such as creating or updating someone else's record, viewing everyone's records, or deleting all records. | ✓ | ✓ | ✓ | 639 |
-| **4.2.2** | Verify that the application or framework enforces a strong anti-CSRF mechanism to protect authenticated functionality, and effective anti-automation or anti-CSRF protects unauthenticated functionality. | ✓ | ✓ | ✓ | 352 |
+| **4.2.1** | Verificar que dados sensíveis de APIs estão protegidos contra ataques de Referências Diretas a Ojbetos Inseguras (IDOR) alvejando criação, leitura, atualização ou deleção de registros, como criar ou atualizar os registros de outra pessoal, visualizar os registros de todo mundo ou apagar todos os registros. | ✓ | ✓ | ✓ | 639 |
+| **4.2.2** | Verificar se a aplicação ou framework impõe mecanismos anti-CSRF fortes para proteger funcionalidades autenticadas e anti-automação ou anti-CSRF protegem efetivamente funcionalidades autenticadas. | ✓ | ✓ | ✓ | 352 |
 
 ## V4.3 Other Access Control Considerations
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **4.3.1** | Verify administrative interfaces use appropriate multi-factor authentication to prevent unauthorized use. | ✓ | ✓ | ✓ | 419 |
-| **4.3.2** | Verify that directory browsing is disabled unless deliberately desired. Additionally, applications should not allow discovery or disclosure of file or directory metadata, such as Thumbs.db, .DS_Store, .git or .svn folders. | ✓ | ✓ | ✓ | 548 |
+| **4.3.1** | Verificar que interfaces administrativas utilizam autenticação multi-fator apropriavada para proteger contra uso não autorizado. | ✓ | ✓ | ✓ | 419 |
+| **4.3.2** | Verificar que navegação por diretório está desabilitada a não ser que seja deliberadamente desejada. Adicionalmente, aplicações não deveriam permitir o descobrimento ou a revelação de metadados de arquivos ou diretórios, como Thumbs.db, .DS_store e pastas .git ou .svn. | ✓ | ✓ | ✓ | 548 |
 | **4.3.3** | Verify the application has additional authorization (such as step up or adaptive authentication) for lower value systems, and / or segregation of duties for high value applications to enforce anti-fraud controls as per the risk of application and past fraud. |  | ✓ | ✓ |  732 |
 
 ## References

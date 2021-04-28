@@ -17,16 +17,16 @@ As previously noted, these requirements have been adapted to be a compliant subs
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.1.1** | Verify the application never reveals session tokens in URL parameters.  | ✓ | ✓ | ✓ | 598 |  |
+| **3.1.1** | Verificar que a aplicação nunca revela tokens de sessão em parâmetros de URL.  | ✓ | ✓ | ✓ | 598 |  |
 
 ## V3.2 Session Binding Requirements
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.2.1** | Verify the application generates a new session token on user authentication. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 384 | 7.1 |
-| **3.2.2** | Verify that session tokens possess at least 64 bits of entropy. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 331 | 7.1 |
-| **3.2.3** | Verify the application only stores session tokens in the browser using secure methods such as appropriately secured cookies (see section 3.4) or HTML 5 session storage. | ✓ | ✓ | ✓ | 539 | 7.1 |
-| **3.2.4** | Verify that session token are generated using approved cryptographic algorithms. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 331 | 7.1 |
+| **3.2.1** | Verificar que a aplicação gera um novo token de sessão na autenticação do usuário. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 384 | 7.1 |
+| **3.2.2** | Verificar que tokens de sessão possuem ao menos 64 bits de entropia. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 331 | 7.1 |
+| **3.2.3** | Verificar que a aplicação apenas armazena tokens de sessão no navegador utilizando métodos seguros como cookies adequadamente seguros (veja seção 3.4) ou armazenamento de sessão do HTML 5. | ✓ | ✓ | ✓ | 539 | 7.1 |
+| **3.2.4** | Verificar que tokens de sessão são gerados utilizando algoritmos criptográficos aprovados. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 331 | 7.1 |
 
 TLS or another secure transport channel is mandatory for session management. This is covered off in the Communications Security chapter.
 
@@ -38,8 +38,8 @@ L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For IAL2/AAL2
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.3.1** | Verify that logout and expiration invalidate the session token, such that the back button or a downstream relying party does not resume an authenticated session, including across relying parties. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 613 | 7.1 |
-| **3.3.2** | If authenticators permit users to remain logged in, verify that re-authentication occurs periodically both when actively used or after an idle period. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | 30 days | 12 hours or 30 minutes of inactivity, 2FA optional | 12 hours or 15 minutes of inactivity, with 2FA | 613 | 7.2 |
+| **3.3.1** | Verificar que logout e expiração invalidam o token de sessão, de tal modo que o botão de voltar ou uma terceira parte confiável downstream não retoma uma sessão autenticada, incluindo através de terceiras partes confiáveis. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 613 | 7.1 |
+| **3.3.2** | Se autenticadores permitem que usuários permaneçam logados, verificar que a reautenticação ocorre periodicamente mesmo quando sendo usado ativamente ou após um período de inatividade. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | 30 dias | 12 horas ou 30 minutos de inatividade, autenticação multifator opcional | 12 horas ou 15 minutes de inatividade, com autenticação multifator | 613 | 7.2 |
 | **3.3.3** | Verify that the application gives the option to terminate all other active sessions after a successful password change (including change via password reset/recovery), and that this is effective across the application, federated login (if present), and any relying parties. |  | ✓ | ✓ | 613 | |
 | **3.3.4** | Verify that users are able to view and (having re-entered login credentials) log out of any or all currently active sessions and devices. |  | ✓ | ✓ | 613 | 7.1 |
 
@@ -47,11 +47,11 @@ L1 in this context is IAL1/AAL1, L2 is IAL2/AAL3, L3 is IAL3/AAL3. For IAL2/AAL2
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.4.1** | Verify that cookie-based session tokens have the 'Secure' attribute set. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 614 | 7.1.1 |
-| **3.4.2** | Verify that cookie-based session tokens have the 'HttpOnly' attribute set. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1004 | 7.1.1 |
-| **3.4.3** | Verify that cookie-based session tokens utilize the 'SameSite' attribute to limit exposure to cross-site request forgery attacks. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 16 | 7.1.1 |
-| **3.4.4** | Verify that cookie-based session tokens use "__Host-" prefix (see references) to provide session cookie confidentiality. | ✓ | ✓ | ✓ | 16 | 7.1.1 |
-| **3.4.5** | Verify that if the application is published under a domain name with other applications that set or use session cookies that might override or disclose the session cookies, set the path attribute in cookie-based session tokens using the most precise path possible. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 16 | 7.1.1 |
+| **3.4.1** | Verificar que tokens de sessão baseados em cookie possuem o atributo 'Secure' configurado. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 614 | 7.1.1 |
+| **3.4.2** | Verificar que tokens de sessão baseados em cookie possuem o atributo 'HttpOnly' configurado. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1004 | 7.1.1 |
+| **3.4.3** | Verificar que tokens de sessão baseados em cookie possuem o atributo 'SameSite' para diminuir a exposição a ataques de cross-site request forgery. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 16 | 7.1.1 |
+| **3.4.4** | Verificar que tokens de sessão baseados em cookie usam o prefixo "__Host-" para prover confidencialidade aos cookies de sessão. | ✓ | ✓ | ✓ | 16 | 7.1.1 |
+| **3.4.5** | Verificar que se a aplicação é publicada sob um nome de domínio com outras aplicação que configuram ou usam cookies de sessão que podem sobrescrever ou revelar os cookies de sessão, configure o atributo path nos tokens de sessão baseados em cookie usando o caminho mais preciso possível. ([C6](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 16 | 7.1.1 |
 
 ## V3.5 Token-based Session Management
 
@@ -84,7 +84,7 @@ Attackers start a half-open attack by attempting to lock, reset, or recover a cr
 
 | # | Description | L1 | L2 | L3 | CWE | [NIST &sect;](https://pages.nist.gov/800-63-3/sp800-63b.html) |
 | :---: | :--- | :---: | :---:| :---: | :---: | :---: |
-| **3.7.1** | [MODIFIED] Verify the application requires re-authentication or secondary factor verification before allowing any sensitive transactions or account modifications. | ✓ | ✓ | ✓ | 306 | |
+| **3.7.1** | [MODIFIED] Verificar que a aplicação requere re-autenticação ou verificação de segundo fator antes de permitir quaisquer transações sensitivas ou modificações de conta. | ✓ | ✓ | ✓ | 306 | |
 
 ## References
 

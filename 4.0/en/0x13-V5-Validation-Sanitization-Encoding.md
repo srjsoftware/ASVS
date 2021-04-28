@@ -18,24 +18,24 @@ Properly implemented input validation controls, using positive allow lists and s
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **5.1.1** | Verify that the application has defenses against HTTP parameter pollution attacks, particularly if the application framework makes no distinction about the source of request parameters (GET, POST, cookies, headers, or environment variables). | ✓ | ✓ | ✓ | 235 |
-| **5.1.2** | Verify that frameworks protect against mass parameter assignment attacks, or that the application has countermeasures to protect against unsafe parameter assignment, such as marking fields private or similar. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 915 |
-| **5.1.3** | Verify that all input (HTML form fields, REST requests, URL parameters, HTTP headers, cookies, batch files, RSS feeds, etc) is validated using positive validation (allow lists). ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 20 |
-| **5.1.4** | Verify that structured data is strongly typed and validated against a defined schema including allowed characters, length and pattern (e.g. credit card numbers or telephone, or validating that two related fields are reasonable, such as checking that suburb and zip/postcode match). ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 20 |
-| **5.1.5** | Verify that URL redirects and forwards only allow destinations which appear on an allow list, or show a warning when redirecting to potentially untrusted content. | ✓ | ✓ | ✓ | 601 |
+| **5.1.1** | Verificar que a aplicação possui defesas contra ataques de poluição de parâmetros  HTTP, principalmente se o framework da aplicação não faz distinção sobre a fonte de parâmetros da requisição (GET, POST, cookies, cabeçalhos ou variáveis de ambiente). | ✓ | ✓ | ✓ | 235 |
+| **5.1.2** | Verificar que os frameworks protegem contra ataques de atribuição de parâmetros em massa ou se a aplicação possui medidas defensivas para proteger contra a atribuição de parâmetros insegura, como marcar campos como privados ou algo similar. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 915 |
+| **5.1.3** | Verificar que todas as entradas (campos de formulário HTML, requisições REST, parâmetros de URL, cabeçalhos HTTP, cookies, arquivos em lote, feeds RSS etc.) são validadas usando validação positiva (lista de permissão). ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 20 |
+| **5.1.4** | Verificar que os dados estruturados são fortemente tipados e validados em relação a um esquema definido incluindo caracteres, comprimento e padrão permitidos (por exemplo, números de cartão de crédito ou telefone, ou validação da relação entre dois campos, como verificar se cidade e CEP/código postal correspondem). ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 20 |
+| **5.1.5** | Verificar se redirecionamento e encaminhamento de URLs permitem apenas destinos autorizados na lista de permissões ou mostram um aviso ao redirecionar para conteúdo potencialmente não confiável. | ✓ | ✓ | ✓ | 601 |
 
 ## V5.2 Sanitization and Sandboxing Requirements
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **5.2.1** | Verify that all untrusted HTML input from WYSIWYG editors or similar is properly sanitized with an HTML sanitizer library or framework feature. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 116 |
-| **5.2.2** | Verify that unstructured data is sanitized to enforce safety measures such as allowed characters and length. | ✓ | ✓ | ✓ | 138 |
-| **5.2.3** | Verify that the application sanitizes user input before passing to mail systems to protect against SMTP or IMAP injection. | ✓ | ✓ | ✓ | 147 |
-| **5.2.4** | Verify that the application avoids the use of eval() or other dynamic code execution features. Where there is no alternative, any user input being included must be sanitized or sandboxed before being executed. | ✓ | ✓ | ✓ | 95 |
-| **5.2.5** | Verify that the application protects against template injection attacks by ensuring that any user input being included is sanitized or sandboxed. | ✓ | ✓ | ✓ | 94 |
-| **5.2.6** | Verify that the application protects against SSRF attacks, by validating or sanitizing untrusted data or HTTP file metadata, such as filenames and URL input fields, and uses allow lists of protocols, domains, paths and ports. | ✓ | ✓ | ✓ | 918 |
-| **5.2.7** | Verify that the application sanitizes, disables, or sandboxes user-supplied Scalable Vector Graphics (SVG) scriptable content, especially as they relate to XSS resulting from inline scripts, and foreignObject. | ✓ | ✓ | ✓ | 159 |
-| **5.2.8** | Verify that the application sanitizes, disables, or sandboxes user-supplied scriptable or expression template language content, such as Markdown, CSS or XSL stylesheets, BBCode, or similar. | ✓ | ✓ | ✓ | 94 |
+| **5.2.1** | Verificar que todas as entradas HTML não confiáveis de editores WYSIWYG ou similares são devidamente sanitizadas com uma biblioteca de sanitização HTML ou recurso do framework. ([C5](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 116 |
+| **5.2.2** | Verificar que os dados não estruturados são sanitizados para impor medidas de segurança como caracteres e comprimento permitidos. | ✓ | ✓ | ✓ | 138 |
+| **5.2.3** | Verificar que a aplicação sanitiza a entrada de dados do usuário antes de passar para os sistemas de e-mail para se proteger contra a injeção de SMTP ou IMAP. | ✓ | ✓ | ✓ | 147 |
+| **5.2.4** | Verificar que a aplicação evita o uso de eval () ou outros recursos de execução dinâmica de código. Onde não há alternativa, qualquer entrada do usuário sendo incluída deve ser sanitizada ou colocada em sandbox antes de ser executada. | ✓ | ✓ | ✓ | 95 |
+| **5.2.5** | Verificar que a aplicação protege contra ataques de injeção de template, garantindo que qualquer entrada do usuário incluída seja sanitizada ou colocada em sandbox. | ✓ | ✓ | ✓ | 94 |
+| **5.2.6** | Verificar que a aplicação protege contra ataques SSRF, validando ou sanitizando dados não confiáveis ou metadados de arquivos HTTP, como nomes de arquivos e campos de entrada de URL, usando uma lista de protocolos, domínios, caminhos e portas permitidos. | ✓ | ✓ | ✓ | 918 |
+| **5.2.7** | Verificar que a aplicação sanitiza, desativa ou executa em sandbox o conteúdo de script em Scalable Vector Graphics (SVG) fornecido pelo usuário, especialmente por estarem relacionados a XSS resultante de scripts inline e ForeignObjects. | ✓ | ✓ | ✓ | 159 |
+| **5.2.8** | Verificar que a aplicação sanitiza, desativa ou executa em sandbox o conteúdo de expressões de linguagem de templates ou de script fornecidos pelo usuário, como Markdown, folhas de estilo CSS ou XSL, BBCode ou similar. | ✓ | ✓ | ✓ | 94 |
 
 ## V5.3 Output Encoding and Injection Prevention Requirements
 
@@ -43,16 +43,16 @@ Output encoding close or adjacent to the interpreter in use is critical to the s
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **5.3.1** | Verify that output encoding is relevant for the interpreter and context required. For example, use encoders specifically for HTML values, HTML attributes, JavaScript, URL parameters, HTTP headers, SMTP, and others as the context requires, especially from untrusted inputs (e.g. names with Unicode or apostrophes, such as ねこ or O'Hara). ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 116 |
-| **5.3.2** | Verify that output encoding preserves the user's chosen character set and locale, such that any Unicode character point is valid and safely handled. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 176 |
-| **5.3.3** | Verify that context-aware, preferably automated - or at worst, manual - output escaping protects against reflected, stored, and DOM based XSS. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 79 |
-| **5.3.4** | Verify that data selection or database queries (e.g. SQL, HQL, ORM, NoSQL) use parameterized queries, ORMs, entity frameworks, or are otherwise protected from database injection attacks. ([C3](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 89 |
-| **5.3.5** | Verify that where parameterized or safer mechanisms are not present, context-specific output encoding is used to protect against injection attacks, such as the use of SQL escaping to protect against SQL injection. ([C3, C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 89 |
-| **5.3.6** | Verify that the application protects against JavaScript or JSON injection attacks, including for eval attacks, remote JavaScript includes, Content Security Policy (CSP) bypasses, DOM XSS, and JavaScript expression evaluation. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 830 |
-| **5.3.7** | Verify that the application protects against LDAP injection vulnerabilities, or that specific security controls to prevent LDAP injection have been implemented. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 90 |
-| **5.3.8** | Verify that the application protects against OS command injection and that operating system calls use parameterized OS queries or use contextual command line output encoding. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 78 |
-| **5.3.9** | Verify that the application protects against Local File Inclusion (LFI) or Remote File Inclusion (RFI) attacks. | ✓ | ✓ | ✓ | 829 |
-| **5.3.10** | Verify that the application protects against XPath injection or XML injection attacks. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 643 |
+| **5.3.1** | Verificar que a codificação de saída é relevante para o intérprete e o contexto necessários. Por exemplo, use codificadores especificamente para valores HTML, atributos HTML, JavaScript, parâmetros de URL, cabeçalhos HTTP, SMTP e outros conforme o contexto exigir, especialmente de entradas não confiáveis (por exemplo, nomes com Unicode ou apóstrofes, como ね こ ou O'Hara). ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 116 |
+| **5.3.2** | Verificar que a codificação de saída preserva o conjunto de caracteres e a localidade escolhidos pelo usuário, de forma que qualquer ponto de caractere Unicode é válido e tratado com segurança. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 176 |
+| **5.3.3** | Verificar que o escape de saída sensível ao contexto, de preferência automatizado - ou, na pior das hipóteses, manual - protege contra XSS refletido, armazenado e baseado em DOM. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 79 |
+| **5.3.4** | Verificar que a seleção de dados ou as consultas ao banco de dados (por exemplo, SQL, HQL, ORM, NoSQL) usam consultas parametrizadas, ORMs, entidades de frameworks ou estão, de outra forma, protegidas contra ataques de injeção de banco de dados. ([C3](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 89 |
+| **5.3.5** | Verificar que onde os mecanismos parametrizados ou mais seguros não estão presentes, a codificação de saída específica do contexto é usada para proteger contra ataques de injeção, como o uso de escape de SQL para proteger contra injeção de SQL. ([C3, C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 89 |
+| **5.3.6** | Verificar que a aplicação protege contra ataques de injeção de JavaScript ou JSON, incluindo para ataques de eval(), includes remotos de JavaScript, burlar a Política de Segurança de Conteúdo (CSP), DOM XSS e avaliação da expressão JavaScript. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 830 |
+| **5.3.7** | Verificar que a aplicação protege contra vulnerabilidades de injeção de LDAP ou se controles de segurança específicos para impedir a injeção LDAP foram implementados. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 90 |
+| **5.3.8** | Verificar que a aplicação protege contra injeção de comandos de SO e que as chamadas ao sistema operacional usam requisições parametrizadas ou usam codificação de linha de comando contextual. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 78 |
+| **5.3.9** | Verificar que a aplicação protege contra ataques de inclusão de arquivo local (LFI) ou inclusão de arquivo remoto (RFI). | ✓ | ✓ | ✓ | 829 |
+| **5.3.10** | Verificar que a aplicação protege contra ataques de injeção de XPath ou de injeção de XML. ([C4](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 643 |
 
 Note: Using parameterized queries or escaping SQL is not always sufficient; table and column names, ORDER BY and so on, cannot be escaped. The inclusion of escaped user-supplied data in these fields results in failed queries or SQL injection.
 
@@ -73,9 +73,9 @@ The following requirements will only apply when the application uses a systems l
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
 | **5.5.1** | [DELETED] | | | | |
-| **5.5.2** | Verify that the application correctly restricts XML parsers to only use the most restrictive configuration possible and to ensure that unsafe features such as resolving external entities are disabled to prevent XML eXternal Entity (XXE) attacks.  | ✓ | ✓ | ✓ | 611 |
-| **5.5.3** | [MODIFIED] Verify that deserialization of untrusted data is avoided or is protected by filtering incoming deserialization data.  | ✓ | ✓ | ✓ | 502 |
-| **5.5.4** | Verify that when parsing JSON in browsers or JavaScript-based backends, JSON.parse is used to parse the JSON document. Do not use eval() to parse JSON. | ✓ | ✓ | ✓ | 95 |
+| **5.5.2** | Verificar que a aplicação restringe corretamente os analisadores XML para usar apenas a configuração mais restritiva possível e para garantir que recursos não seguros, como a resolução de entidades externas, estejam desabilitados para impedir ataques de XML External Entities (XXE).  | ✓ | ✓ | ✓ | 611 |
+| **5.5.3** | [MODIFIED] Verificar que a desserialização de dados não confiáveis é evitada ou protegida ao filtrar os dados de desserialização que chegam. | ✓ | ✓ | ✓ | 502 |
+| **5.5.4** | Verificar que ao analisar JSON em navegadores ou backends baseados em JavaScript, JSON.parse é usado para analisar o documento JSON. Não use eval () para analisar JSON. | ✓ | ✓ | ✓ | 95 |
 
 ## References
 

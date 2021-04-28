@@ -24,14 +24,14 @@ Authorization is the concept of allowing access to resources only to those permi
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **4.2.1** | Verificar que dados sensíveis de APIs estão protegidos contra ataques de Referências Diretas a Ojbetos Inseguras (IDOR) alvejando criação, leitura, atualização ou deleção de registros, como criar ou atualizar os registros de outra pessoal, visualizar os registros de todo mundo ou apagar todos os registros. | ✓ | ✓ | ✓ | 639 |
+| **4.2.1** | Verificar que dados sensíveis de APIs estão protegidos contra ataques de Referências Diretas a Objetos Inseguras (IDOR) alvejando criação, leitura, atualização ou deleção de registros, como criar ou atualizar os registros de outra pessoal, visualizar os registros de todo mundo ou apagar todos os registros. | ✓ | ✓ | ✓ | 639 |
 | **4.2.2** | Verificar se a aplicação ou framework impõe mecanismos anti-CSRF fortes para proteger funcionalidades autenticadas e anti-automação ou anti-CSRF protegem efetivamente funcionalidades autenticadas. | ✓ | ✓ | ✓ | 352 |
 
 ## V4.3 Other Access Control Considerations
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **4.3.1** | Verificar que interfaces administrativas utilizam autenticação multi-fator apropriavada para proteger contra uso não autorizado. | ✓ | ✓ | ✓ | 419 |
+| **4.3.1** | Verificar que interfaces administrativas utilizam autenticação multi-fator apropriada para proteger contra uso não autorizado. | ✓ | ✓ | ✓ | 419 |
 | **4.3.2** | Verificar que navegação por diretório está desabilitada a não ser que seja deliberadamente desejada. Adicionalmente, aplicações não deveriam permitir o descobrimento ou a revelação de metadados de arquivos ou diretórios, como Thumbs.db, .DS_store e pastas .git ou .svn. | ✓ | ✓ | ✓ | 548 |
 | **4.3.3** | Verify the application has additional authorization (such as step up or adaptive authentication) for lower value systems, and / or segregation of duties for high value applications to enforce anti-fraud controls as per the risk of application and past fraud. |  | ✓ | ✓ |  732 |
 

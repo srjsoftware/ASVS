@@ -44,9 +44,9 @@ Complying with this section is likely to be operational and continuous.
 
 | # | Description | L1 | L2 | L3 | CWE |
 | :---: | :--- | :---: | :---:| :---: | :---: |
-| **10.3.1** | Verify that if the application has a client or server auto-update feature, updates should be obtained over secure channels and digitally signed. The update code must validate the digital signature of the update before installing or executing the update. | ✓ | ✓ | ✓ | 16 |
-| **10.3.2** | Verify that the application employs integrity protections, such as code signing or subresource integrity. The application must not load or execute code from untrusted sources, such as loading includes, modules, plugins, code, or libraries from untrusted sources or the Internet. | ✓ | ✓ | ✓ | 353 |
-| **10.3.3** | Verify that the application has protection from subdomain takeovers if the application relies upon DNS entries or DNS subdomains, such as expired domain names, out of date DNS pointers or CNAMEs, expired projects at public source code repos, or transient cloud APIs, serverless functions, or storage buckets (*autogen-bucket-id*.cloud.example.com) or similar. Protections can include ensuring that DNS names used by applications are regularly checked for expiry or change. | ✓ | ✓ | ✓ | 350 |
+| **10.3.1** | Verificar que se a aplicação possui uma funcionalidade de atualização automática de cliente ou servidor, atualizações devem ser obtidas sobre canais seguros e assinadas digitalmente. O código de atualização deve validar a assinatura digital da atualização antes de instalar ou executar a atualização. | ✓ | ✓ | ✓ | 16 |
+| **10.3.2** | Verificar que a aplicação impõe proteções de integridade, tal como assinatura de código ou integridade de sub-recurso. A aplicação não deve carregar ou executar código de fontes não confiáveis, tal como carregar includes, módulos, plugins, código, ou bibliotecas de fontes não confiáveis ou da Internet. | ✓ | ✓ | ✓ | 353 |
+| **10.3.3** | Verificar que a aplicação possui proteções contra a tomada de subdomínios se a aplicação depende de entradas de DNS e subdomínios de DNS, tal como nomes de domínio expirados, PTRs expirados ou CNAMEs, projetos expirados em repositórios públicos de código fonte, ou APIs em nuvem transiente, funções serverless, ou buckets de armazenamento (*autogen-bucket-id*.cloud.example.com) ou similar. Proteções podem incluir garantir que nomes de DNS utilizados pela aplicações são checados regularmente por expiração ou alteração. | ✓ | ✓ | ✓ | 350 |
 
 ## References
 

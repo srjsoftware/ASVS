@@ -22,7 +22,7 @@ Compliance with this section requires an automated build system, and access to b
 
 | # | Description | L1 | L2 | L3 | CWE |
 | --- | --- | --- | --- | -- | -- |
-| **14.1.1** | Verify that the application build and deployment processes are performed in a secure and repeatable way, such as CI / CD automation, automated configuration management, and automated deployment scripts. | | ✓ | ✓ | |
+| **14.1.1** | Verificar que os processos de construição e implantação da aplicação são realizados de maneira segura e repetível, tal como automação CI / CD, gerenciamento de configurações automático, e scripts de implantação automáticos. | | ✓ | ✓ | |
 | **14.1.2** | Verify that compiler flags are configured to enable all available buffer overflow protections and warnings, including stack randomization, data execution prevention, and to break the build if an unsafe pointer, memory, format string, integer, or string operations are found. |  | ✓ | ✓ | 120 |
 | **14.1.3** | Verify that server configuration is hardened as per the recommendations of the application server and frameworks in use. | | ✓ | ✓ | 16 |
 | **14.1.4** | Verify that the application, configuration, and all dependencies can be re-deployed using automated deployment scripts, built from a documented and tested runbook in a reasonable time, or restored from backups in a timely fashion. | | ✓ | ✓ | |
@@ -36,9 +36,9 @@ Note: At Level 1, 14.2.1 compliance relates to observations or detections of cli
 
 | # | Description | L1 | L2 | L3 | CWE |
 | --- | --- | --- | --- | -- | -- |
-| **14.2.1** | Verify that all components are up to date, preferably using a dependency checker during build or compile time. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1026 |
-| **14.2.2** | Verify that all unneeded features, documentation, samples, configurations are removed, such as sample applications, platform documentation, and default or example users. | ✓ | ✓ | ✓ | 1002 |
-| **14.2.3** | Verify that if application assets, such as JavaScript libraries, CSS or web fonts, are hosted externally on a Content Delivery Network (CDN) or external provider, Subresource Integrity (SRI) is used to validate the integrity of the asset. | ✓ | ✓ | ✓ | 829 |
+| **14.2.1** | Verificar que todos os componentes estão atualizados, preferencialmente utilizando checagem de dependência durante a construção ou compilação. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | ✓ | ✓ | ✓ | 1026 |
+| **14.2.2** | Verificar que toda funcionalidade, documentação, exemplos e configuração desnecessárias são removidas, tal como aplicações de exemplo, documentações de plataforma, e usuários padrão ou de exemplo. | ✓ | ✓ | ✓ | 1002 |
+| **14.2.3** | Verificar que se recursos de aplicação, como bibliotecas JavaScript, CSS ou fontes web, são armazenados externamente ou em uma Rede de Fornecimento de Conteúdo (CDN) ou provedor externo, Integridade de Sub-recurso (SRI) é usada para validar a integridade do recurso. | ✓ | ✓ | ✓ | 829 |
 | **14.2.4** | Verify that third party components come from pre-defined, trusted and continually maintained repositories. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 829 |
 | **14.2.5** | Verify that an inventory catalog is maintained of all third party libraries in use. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | |
 | **14.2.6** | Verify that the attack surface is reduced by sandboxing or encapsulating third party libraries to expose only the required behaviour into the application. ([C2](https://owasp.org/www-project-proactive-controls/#div-numbering)) | | ✓ | ✓ | 265 |
@@ -49,29 +49,29 @@ Configurations for production should be hardened to protect against common attac
 
 | # | Description | L1 | L2 | L3 | CWE |
 | --- | --- | --- | --- | -- | -- |
-| **14.3.1** | Verify that web or application server and framework error messages are configured to deliver user actionable, customized responses to eliminate any unintended security disclosures. | ✓ | ✓ | ✓ | 209 |
-| **14.3.2** | Verify that web or application server and application framework debug modes are disabled in production to eliminate debug features, developer consoles, and unintended security disclosures. | ✓ | ✓ | ✓ | 497 |
-| **14.3.3** | Verify that the HTTP headers or any part of the HTTP response do not expose detailed version information of system components. | ✓ | ✓ | ✓ | 200 |
+| **14.3.1** | Verificar que as mensagens de erro do servidor web ou de aplicação e do framework são configurados para transmitir respostas customizadas acionáveis pelo usuário para eliminar qualquer revelação de segurança não intencional. | ✓ | ✓ | ✓ | 209 |
+| **14.3.2** | Verificar que os modos de depuração do servidor web ou de aplicação e do framework da aplicação estão desabilitados em produção para eliminar funcionalidades de depuração, consoles de desenvolvedor e revelações de segurança não intencionais. | ✓ | ✓ | ✓ | 497 |
+| **14.3.3** | Verificar que os cabeçalhos HTTP ou qualquer parte da resposta HTTP não exponha informações de versões de componentes de sistema detalhada. | ✓ | ✓ | ✓ | 200 |
 
 ## V14.4 HTTP Security Headers Requirements
 
 | # | Description | L1 | L2 | L3 | CWE |
 | --- | --- | --- | --- | -- | -- |
-| **14.4.1** | Verify that every HTTP response contains a Content-Type header. text/*, */*+xml and application/xml content types should also specify a safe character set (e.g., UTF-8, ISO-8859-1). | ✓ | ✓ | ✓ | 173 |
-| **14.4.2** | Verify that all API responses contain a Content-Disposition: attachment; filename="api.json" header (or other appropriate filename for the content type). | ✓ | ✓ | ✓ | 116 |
-| **14.4.3** | Verify that a Content Security Policy (CSP) response header is in place that helps mitigate impact for XSS attacks like HTML, DOM, JSON, and JavaScript injection vulnerabilities. | ✓ | ✓ | ✓ | 1021 |
-| **14.4.4** | Verify that all responses contain a X-Content-Type-Options: nosniff header. | ✓ | ✓ | ✓ | 116 |
-| **14.4.5** | Verify that a Strict-Transport-Security header is included on all responses and for all subdomains, such as Strict-Transport-Security: max-age=15724800; includeSubdomains. | ✓ | ✓ | ✓ | 523 |
-| **14.4.6** | Verify that a suitable "Referrer-Policy" header is included, such as "no-referrer" or "same-origin". | ✓ | ✓ | ✓ | 116 |
-| **14.4.7** | Verify that the content of a web application cannot be embedded in a third-party site by default and that embedding of the exact resources is only allowed where necessary by using suitable Content-Security-Policy: frame-ancestors and X-Frame-Options response headers. | ✓ | ✓ | ✓ | 346 |
+| **14.4.1** | Verificar que toda reposta HTTP contém um cabeçalho Content-Type. Tipos de conteúdo text/*, */*+xml e application/xml devem também especificar um conjunto de caracteres seguros (e.g., UTF-8, ISO-8859-1). | ✓ | ✓ | ✓ | 173 |
+| **14.4.2** | Verificar que toda resposta de API contém um cabeçalho Content-Disposition: attachment; filename="api.json" (ou outro nome de arquivo apropriado parar o tipo do conteúdo). | ✓ | ✓ | ✓ | 116 |
+| **14.4.3** | Verificar que um cabeçalho de Política de Segurança de Conteúdo (CSP) está configurado de forma que ajude a mitigar o impacto de ataques XSS como vulnerabilidades de injeção de HTML, DOM, JSON e JavaScript. | ✓ | ✓ | ✓ | 1021 |
+| **14.4.4** | Verificar que todas as respostas contém um cabeçalho X-Content-Type-Options: nosniff. | ✓ | ✓ | ✓ | 116 |
+| **14.4.5** | Verificar que um cabeçalho de Strict-Transport-Security  é incluído em todas as respostas de todos os subdomínios, tal como Strict-Transport-Security: max-age=15724800; includeSubdomains. | ✓ | ✓ | ✓ | 523 |
+| **14.4.6** | Verificar que um cabeçalho "Referrer-Policy" adequado está incluído, tal como "no-referrer" ou "same-origin". | ✓ | ✓ | ✓ | 116 |
+| **14.4.7** | Verificar que o conteúdo de uma aplicação web não pode ser embutido em um site de terceiros por padrão e que o embutimento do recurso específico é permitido apenas onde necessário ao se usar os cabeçalhos Content-Security-Policy: frame-ancestors e X-Frame-Options adequados. | ✓ | ✓ | ✓ | 346 |
 
 ## V14.5 Validate HTTP Request Header Requirements
 
 | # | Description | L1 | L2 | L3 | CWE |
 | --- | --- | --- | --- | -- | -- |
-| **14.5.1** | Verify that the application server only accepts the HTTP methods in use by the application/API, including pre-flight OPTIONS, and logs/alerts on any requests that are not valid for the application context. | ✓ | ✓ | ✓ | 749 |
-| **14.5.2** | Verify that the supplied Origin header is not used for authentication or access control decisions, as the Origin header can easily be changed by an attacker. | ✓ | ✓ | ✓ | 346 |
-| **14.5.3** | Verify that the Cross-Origin Resource Sharing (CORS) Access-Control-Allow-Origin header uses a strict allow list of trusted domains and subdomains to match against and does not support the "null" origin. | ✓ | ✓ | ✓ | 346 |
+| **14.5.1** | Verificar que o servidor de aplicação aceita apenas os métodos HTTP utilizados pela aplicação/API, incluindo o uso prévio de OPTIONS, e loga/alerta qualquer requisição que não é válida para o contexto da aplicação. | ✓ | ✓ | ✓ | 749 |
+| **14.5.2** | Verificar que o cabeçalho Origin fornecido não é utilizado para autenticação ou qualquer decisão de controle de acesso, visto que o cabeçalho Origin pode ser facilmente alterado pelo atacante. | ✓ | ✓ | ✓ | 346 |
+| **14.5.3** | Verificar que o cabeçalho de compartilhamento de recursos com origens diferentes Access-Control-Allow-Origin usa uma lista de permissões de domínios e subdomínios confiáveis restrita para checagem e não suporta a origem "null". | ✓ | ✓ | ✓ | 346 |
 | **14.5.4** | Verify that HTTP headers added by a trusted proxy or SSO devices, such as a bearer token, are authenticated by the application. | | ✓ | ✓ | 306 |
 
 ## References
